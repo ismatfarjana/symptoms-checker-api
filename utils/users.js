@@ -25,7 +25,6 @@ const updateUser = async (req, res) => {
   const userUpdate = req.body;
   const id = req.params.id
   // console.log("id in update:", id)
-  // console.log("user update in util:", userUpdate)
 
   await userController.updateUser(id, userUpdate)
     .then(data => res.json(data))

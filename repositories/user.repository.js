@@ -21,7 +21,6 @@ class UserRepository {
   }
 
   async createUser(user) {
-    console.log("user in repo:", user);
     const newUser = new User(user);
 
     try {

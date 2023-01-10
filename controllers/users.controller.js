@@ -10,7 +10,6 @@ class UserController {
   }
 
   async createUser(user) {
-    console.log("user in controller:", user);
     return await userService.createUser(user);
   }
 
