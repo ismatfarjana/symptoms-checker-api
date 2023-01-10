@@ -10,32 +10,16 @@ class UserRepository {
 
   async getAllUsers() {
     const users = await User.find({});
-    // console.log("users:", users)
     return users;
   }
 
   async getOneUser(id) {
     const users = await User.find({ _id: id });
-    // console.log("users:", users)
     return users;
   }
 
-  // async createUser(user) {
-  //   const newUser = new User(user);
-
-  //   try {
-  //     return await User.create(newUser);
-  //   } catch (err) {
-  //     // console.error('Error:' + err)
-  //     if (err) {
-  //       return err;
-  //     }
-  //   }
-  //   // return user;
-  // }
   async updateUser(id, user) {
     try {
-      console.log("REPOSITORY user UPDATE:", user);
       await User.updateOne({ _id: id }, { $set: user });
     } catch {
       console.error("Error:" + err);
