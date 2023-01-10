@@ -12,12 +12,12 @@ class UserService {
   async getOneUser(id) {
     return await userRepository.getOneUser(id);
   }
-  async createUser(user) {
-    console.log("user in service:", user);
-    user._id = crypto.randomBytes(16).toString("hex");
+  // async createUser(user) {
+  //   console.log("user in service:", user);
+  //   user._id = crypto.randomBytes(16).toString("hex");
 
-    return await userRepository.createUser(user);
-  }
+  //   return await userRepository.createUser(user);
+  // }
   async updateUser(id, user) {
     return await userRepository.updateUser(id, user);
   }

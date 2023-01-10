@@ -11,9 +11,9 @@ const UserSchema = new Schema(
     },
     password: String,
     profile: {
-      name: { type: String, required: true },
-      gender: { type: String, required: true },
-      yearOfBirth: { type: String, required: true },
+      name: { type: String },
+      gender: { type: String },
+      yearOfBirth: { type: String },
     },
   },
   {

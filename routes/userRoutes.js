@@ -1,17 +1,18 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const { authenticated } = require("../utils/global");
 const {
   getUsers,
   getOneUser,
-  createUser,
+  // createUser,
   updateUser,
-  deleteUser
-} = require("../utils/users")
+  deleteUser,
+} = require("../utils/users");
 
-router.get("/", getUsers);
-router.get("/:id", getOneUser)
-router.post("/", createUser);
+router.get("/", authenticated, getUsers);
+router.get("/:id", getOneUser);
+// router.post("/", createUser);
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 
-module.exports = router
+module.exports = router;

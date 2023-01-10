@@ -12,14 +12,14 @@ const getOneUser = async (req, res) => {
     .then(data => res.json(data))
 }
 
-const createUser = async (req, res) => {
-  const user = req.body;
+// const createUser = async (req, res) => {
+//   const user = req.body;
 
-  await userController.createUser(user)
-    .then(data => {
-      res.json(data)
-    })
-}
+//   await userController.createUser(user)
+//     .then(data => {
+//       res.json(data)
+//     })
+// }
 
 const updateUser = async (req, res) => {
   const userUpdate = req.body;
@@ -41,7 +41,7 @@ const deleteUser = async (req, res) => {
 module.exports = {
   getUsers,
   getOneUser,
-  createUser,
+  // createUser,
   updateUser,
   deleteUser
 } 

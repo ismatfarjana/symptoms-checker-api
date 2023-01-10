@@ -10,7 +10,8 @@ app.use(
 );
 const bodyParser = require("body-parser");
 
-const userApi = require("./routes/userRoutes");
+const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 const PORT = process.env.PORT;
 
 //parse application/json and look for raw text
@@ -25,7 +26,8 @@ app.get("/", (req, res) => {
   res.send("App works!!!");
 });
 
-app.use("/user", userApi);
+app.use(authRoutes);
+app.use("/user", userRoutes);
 
 // Handle undefined and other routes
 app.get("*", (req, res) => {

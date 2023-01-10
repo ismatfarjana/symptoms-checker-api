@@ -9,9 +9,9 @@ class UserController {
     return await userService.getOneUser(id);
   }
 
-  async createUser(user) {
-    return await userService.createUser(user);
-  }
+  // async createUser(user) {
+  //   return await userService.createUser(user);
+  // }
 
   async updateUser(id, user) {
     return await userService.updateUser(id, user);
