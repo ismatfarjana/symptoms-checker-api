@@ -13,7 +13,7 @@ const getOneUser = async (req, res) => {
 }
 
 const createUser = async (req, res) => {
-  const user = req.body.user;
+  const user = req.body;
 
   await userController.createUser(user)
     .then(data => {

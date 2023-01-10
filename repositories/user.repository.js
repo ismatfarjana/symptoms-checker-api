@@ -1,7 +1,7 @@
 // CRUD operations
 // const crypto = require('crypto');
-const { connect } = require('../config/db.config');
-const { User } = require('../models/users.model.js');
+const { connect } = require("../config/db.config");
+const { User } = require("../models/users.model.js");
 
 class UserRepository {
   constructor() {
@@ -21,23 +21,24 @@ class UserRepository {
   }
 
   async createUser(user) {
-    const newUser = new User(user)
-  
+    console.log("user in repo:", user);
+    const newUser = new User(user);
+
     try {
       return await User.create(newUser);
     } catch (err) {
       // console.error('Error:' + err)
       if (err) {
-        return (err);
+        return err;
       }
     }
     // return user;
   }
   async updateUser(id, user) {
     try {
-      await User.updateOne({ _id: id }, { $set: user })
+      await User.updateOne({ _id: id }, { $set: user });
     } catch {
-      console.error('Error:' + err)
+      console.error("Error:" + err);
     }
     return user;
   }
@@ -45,9 +46,9 @@ class UserRepository {
   async deleteUser(userId) {
     let data = {};
     try {
-      data = await User.deleteOne({ _id: userId })
+      data = await User.deleteOne({ _id: userId });
     } catch {
-      console.error('Error:' + err)
+      console.error("Error:" + err);
     }
     return { status: `${data.deletedCount > 0 ? true : false}` };
   }

@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
   res.send("App works!!!");
 });
 
-app.use("/userapi", userApi);
+app.use("/user", userApi);
 
 // Handle undefined and other routes
 app.get("*", (req, res) => {

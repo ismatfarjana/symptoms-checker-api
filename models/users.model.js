@@ -10,13 +10,11 @@ const UserSchema = new Schema(
       unique: true,
     },
     password: String,
-    profile: [
-      {
-        name: { type: String, required: true },
-        gender: { type: String, required: true },
-        yearOfBirth: { type: String, required: true },
-      },
-    ],
+    profile: {
+      name: { type: String, required: true },
+      gender: { type: String, required: true },
+      yearOfBirth: { type: String, required: true },
+    },
   },
   {
     timestamps: {
