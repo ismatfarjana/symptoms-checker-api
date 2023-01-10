@@ -34,7 +34,7 @@ router.post("/login", (req, res) => {
       let token = jwt.sign({ id: user._id }, process.env.SECRET, {
         expiresIn: 86400,
       });
-      return res.send({ token });
+      return res.send({ token, userId: user._id, profile: user.profile });
     });
   });
 });
@@ -62,7 +62,7 @@ router.post("/register", (req, res) => {
           expiresIn: 86400,
         });
 
-        res.send({ token });
+        res.send({ token, userId: user._id });
       }
     );
   });
