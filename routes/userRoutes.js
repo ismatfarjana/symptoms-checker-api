@@ -4,15 +4,13 @@ const { authenticated } = require("../utils/global");
 const {
   getUsers,
   getOneUser,
-  // createUser,
   updateUser,
   deleteUser,
 } = require("../utils/users");
 
 router.get("/", authenticated, getUsers);
-router.get("/:id", getOneUser);
-// router.post("/", createUser);
-router.put("/:id", updateUser);
-router.delete("/:id", deleteUser);
+router.get("/:id", authenticated, getOneUser);
+router.put("/:id", authenticated, updateUser);
+router.delete("/:id", authenticated, deleteUser);
 
 module.exports = router;
