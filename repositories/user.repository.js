@@ -8,6 +8,19 @@ class UserRepository {
     connect();
   }
 
+  async findUser(email) {
+    try {
+      const user = await User.find({ email: email });
+      return user[0];
+    } catch {
+      return err;
+    }
+  }
+
+  async createUser(email, password) {
+
+  }
+
   async getAllUsers() {
     const users = await User.find({});
     return users;
