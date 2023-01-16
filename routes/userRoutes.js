@@ -6,7 +6,7 @@ const {
   getOneUser,
   updateUser,
   deleteUser,
-} = require("../utils/users");
+} = require("../utils/user");
 
 router.get("/", authenticated, getUsers);
 router.get("/:id", authenticated, getOneUser);

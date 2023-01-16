@@ -1,4 +1,4 @@
-const userController = require("../controllers/users.controller");
+const userController = require("../controllers/user");
 
 const getUsers = async (req, res) => {
   await userController.getAllUsers().then((data) => res.json(data));

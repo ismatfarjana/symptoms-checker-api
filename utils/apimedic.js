@@ -1,4 +1,4 @@
-const { loadToken, loadData } = require("../services/apimedic.service.js");
+const { loadToken, loadData } = require("../services/apimedic.js");
 
 const getToken = async (req, res) => {
   // get token

@@ -1,7 +1,7 @@
 // CRUD operations
 const crypto = require("crypto");
 const { connect } = require("../config/db.config");
-const { User } = require("../models/users.model.js");
+const { User } = require("../models/user.js");
 
 class UserRepository {
   constructor() {

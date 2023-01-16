@@ -1,5 +1,5 @@
 // Define User service for Data manipulation
-const userRepository = require("../repositories/user.repository");
+const userRepository = require("../repositories/user");
 
 class UserService {
   constructor() {}
