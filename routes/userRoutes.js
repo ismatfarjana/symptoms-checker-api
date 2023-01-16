@@ -2,14 +2,14 @@ const express = require("express");
 const router = express.Router();
 const { authenticated } = require("../utils/global");
 const {
-  getUsers,
-  getOneUser,
+  getAllUsers,
+  getUser,
   updateUser,
   deleteUser,
-} = require("../utils/user");
+} = require("../controllers/user");
 
-router.get("/", authenticated, getUsers);
-router.get("/:id", authenticated, getOneUser);
+router.get("/", authenticated, getAllUsers);
+router.get("/:id", authenticated, getUser);
 router.put("/:id", authenticated, updateUser);
 router.delete("/:id", authenticated, deleteUser);
 

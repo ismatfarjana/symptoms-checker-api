@@ -36,7 +36,7 @@ class UserRepository {
     return users;
   }
 
-  async getOneUser(id) {
+  async getUser(id) {
     const users = await User.find({ _id: id });
     return users;
   }
