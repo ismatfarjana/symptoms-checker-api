@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { User } = require("./../models/users.model.js");
-const { findUser } = require("../repositories/user.repository");
+
+const { findUser, createUser } = require("../repositories/user.repository");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const crypto = require("crypto");
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
@@ -15,7 +14,6 @@ router.post("/login", async (req, res) => {
   }
 
   const user = await findUser(email);
-
   if (!user)
     return res
       .status(401)
@@ -43,24 +41,18 @@ router.post("/register", (req, res) => {
       err: "Please supply email and password",
     });
   }
+
   bcrypt.hash(password, 8, (err, hash) => {
-    User.create(
-      {
-        _id: crypto.randomBytes(16).toString("hex"),
-        email,
-        password: hash,
-        profile: {},
-      },
-      (err, user) => {
-        if (err) return res.status(400).send(err);
+    const user = createUser(email, hash);
 
-        let token = jwt.sign({ id: user._id }, process.env.SECRET, {
-          expiresIn: 86400,
-        });
+    if (err) return res.status(400).send(err);
+    if (!user) return res.status(400).send({ err: "Something went wrong!" });
 
-        res.send({ token, userId: user._id });
-      }
-    );
+    let token = jwt.sign({ id: user._id }, process.env.SECRET, {
+      expiresIn: 86400,
+    });
+
+    res.send({ token, userId: user._id });
   });
 });
 

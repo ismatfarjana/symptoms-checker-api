@@ -1,5 +1,5 @@
 // CRUD operations
-// const crypto = require('crypto');
+const crypto = require("crypto");
 const { connect } = require("../config/db.config");
 const { User } = require("../models/users.model.js");
 
@@ -12,13 +12,23 @@ class UserRepository {
     try {
       const user = await User.find({ email: email });
       return user[0];
-    } catch {
+    } catch (err) {
       return err;
     }
   }
 
-  async createUser(email, password) {
-
+  async createUser(email, hash) {
+    try {
+      const user = await User.create({
+        _id: crypto.randomBytes(16).toString("hex"),
+        email,
+        password: hash,
+        profile: {},
+      });
+      return user[0];
+    } catch (err) {
+      return err;
+    }
   }
 
   async getAllUsers() {
