@@ -5,9 +5,9 @@ class UserController {
     return await userService.getAllUsers().then((data) => res.json(data));
   }
 
-  async getUser(req, res) {
+  async getUserById(req, res) {
     const { id } = req.params;
-    return await userService.getUser(id).then((data) => res.json(data));
+    return await userService.getUserById(id).then((data) => res.json(data));
   }
 
   async updateUser(req, res) {
