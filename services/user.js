@@ -1,5 +1,5 @@
 // Define User service for Data manipulation
-const userRepository = require("../repositories/user.repository");
+const userRepository = require("../repositories/user");
 
 class UserService {
   constructor() {}
@@ -8,8 +8,8 @@ class UserService {
     return await userRepository.getAllUsers();
   }
 
-  async getOneUser(id) {
-    return await userRepository.getOneUser(id);
+  async getUserById(id) {
+    return await userRepository.getUserById(id);
   }
 
   async updateUser(id, user) {

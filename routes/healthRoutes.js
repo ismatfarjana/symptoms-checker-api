@@ -10,7 +10,7 @@ const {
   getBodyLocations,
   getOneLocation,
   getBodySymptoms,
-} = require("../utils/apimedic");
+} = require("../controllers/apimedic");
 
 router.get("/symptoms", getSymptoms);
 router.get("/issues", getIssues);
