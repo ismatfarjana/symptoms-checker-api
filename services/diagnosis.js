@@ -7,17 +7,22 @@ class UserService {
 
   async addDiagnosis(userId, symptoms, diagnosises) {
     const id = crypto.randomBytes(16).toString("hex");
-
-    diagnosises.map((diagnosis) => {
-      diagnosis._id = crypto.randomBytes(16).toString("hex");
+    const updatedDiagnosis = diagnosises.map((diagnosis) => {
+      return {
+        _id: id,
+        name: diagnosis.Issue.ProfName,
+        accuracy: diagnosis.Issue.Accuracy,
+        ranking: diagnosis.Issue.Ranking,
+      };
     });
 
     const diagnosisObject = {
       _id: id,
       userId: userId,
-      diagnosis: diagnosises,
+      diagnosis: updatedDiagnosis,
       selectedSymptoms: symptoms,
     };
+
     return await diagnosisRepository.addDiagnosis(diagnosisObject);
   }
 
