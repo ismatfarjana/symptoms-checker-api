@@ -26,8 +26,8 @@ class UserService {
     return await diagnosisRepository.addDiagnosis(diagnosisObject);
   }
 
-  async getAllDiagnosisesByUserId(userId) {
-    // return await diagnosisRepository.getAllUsers();
+  async getAllDiagnosisByUserID(userId) {
+    return await diagnosisRepository.getAllDiagnosisByUserID(userId);
   }
 
   async getOneDiagnosisByUserId(id) {

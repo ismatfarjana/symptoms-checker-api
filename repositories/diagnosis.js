@@ -15,6 +15,16 @@ class DiagnosisRepository {
       return err;
     }
   }
+
+  async getAllDiagnosisByUserID(userId) {
+    try {
+      const allDiagnosis = await Diagnosis.find({ userId: userId });
+
+      return allDiagnosis;
+    } catch (err) {
+      return err;
+    }
+  }
 }
 
 module.exports = new DiagnosisRepository();

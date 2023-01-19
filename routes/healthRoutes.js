@@ -11,8 +11,6 @@ const {
   getOneLocation,
   getBodySymptoms,
 } = require("../controllers/apimedic");
-const { addDiagnosis } = require("../controllers/diagnosis");
-const { authenticated } = require("../utils/global");
 
 router.get("/symptoms", getSymptoms);
 router.get("/issues", getIssues);
@@ -23,7 +21,5 @@ router.get("/symptoms/proposed", getProposedSymptoms); // required: symptoms ids
 router.get("/locations", getBodyLocations);
 router.get("/locations/:id", getOneLocation); // required: id
 router.get("/body/symptoms", getBodySymptoms); // required: location id, gender
-
-router.post("/diagnosis", authenticated, addDiagnosis);
 
 module.exports = router;
