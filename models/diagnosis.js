@@ -10,6 +10,7 @@ const DiagnosisSchema = new Schema(
       {
         _id: String,
         name: String,
+        profname: String,
         accuracy: Number,
         ranking: Number,
       },

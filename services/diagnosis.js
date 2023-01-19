@@ -10,7 +10,8 @@ class UserService {
     const updatedDiagnosis = diagnosises.map((diagnosis) => {
       return {
         _id: id,
-        name: diagnosis.Issue.ProfName,
+        name: diagnosis.Issue.Name,
+        profname: diagnosis.Issue.ProfName,
         accuracy: diagnosis.Issue.Accuracy,
         ranking: diagnosis.Issue.Ranking,
       };
