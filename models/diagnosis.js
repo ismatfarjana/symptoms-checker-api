@@ -15,7 +15,12 @@ const DiagnosisSchema = new Schema(
         ranking: Number,
       },
     ],
-    selectedSymptoms: [{ type: String }],
+    selectedSymptoms: [
+      {
+        symptomId: Number,
+        name: String,
+      },
+    ],
   },
   {
     timestamps: {

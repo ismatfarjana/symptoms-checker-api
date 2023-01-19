@@ -7,7 +7,7 @@ class UserService {
 
   async addDiagnosis(userId, symptoms, diagnosises) {
     const id = crypto.randomBytes(16).toString("hex");
-    const updatedDiagnosis = diagnosises.map((diagnosis) => {
+    const diagnosisInsert = diagnosises.map((diagnosis) => {
       return {
         _id: id,
         name: diagnosis.Issue.Name,
@@ -17,13 +17,19 @@ class UserService {
       };
     });
 
+    const symptomsInsert = symptoms.map((symptom) => {
+      return {
+        symptomId: symptom.ID,
+        name: symptom.Name,
+      };
+    });
+
     const diagnosisObject = {
       _id: id,
       userId: userId,
-      diagnosis: updatedDiagnosis,
-      selectedSymptoms: symptoms,
+      diagnosis: diagnosisInsert,
+      selectedSymptoms: symptomsInsert,
     };
-
     return await diagnosisRepository.addDiagnosis(diagnosisObject);
   }
 

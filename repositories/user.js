@@ -18,7 +18,6 @@ class UserRepository {
   }
 
   async createUser(userId, email, hash) {
-    console.log("userId:", userId);
     try {
       const user = await User.create({
         _id: userId,
@@ -26,7 +25,6 @@ class UserRepository {
         password: hash,
         profile: {},
       });
-      console.log("user in repo:", user[0]);
       return user[0];
     } catch (err) {
       return err;
