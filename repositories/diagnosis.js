@@ -18,9 +18,38 @@ class DiagnosisRepository {
 
   async getAllDiagnosisByUserID(userId) {
     try {
-      const allDiagnosis = await Diagnosis.find({ userId: userId });
+      const aggregateArray = [
+        { $match: { userId: userId } },
+        {
+          $project: {
+            _id: 1,
+            selectedSymptoms: 1,
+            createdAt: 1,
+          },
+        },
+      ];
 
+      const allDiagnosis = await Diagnosis.aggregate(aggregateArray);
       return allDiagnosis;
+    } catch (err) {
+      return err;
+    }
+  }
+
+  async getOneDiagnosisByID(id) {
+    try {
+      const aggregateArray = [
+        { $match: { _id: id } },
+        {
+          $project: {
+            _id: 1,
+            diagnosis: 1,
+          },
+        },
+      ];
+      const diagnosis = await Diagnosis.aggregate(aggregateArray);
+
+      return diagnosis;
     } catch (err) {
       return err;
     }

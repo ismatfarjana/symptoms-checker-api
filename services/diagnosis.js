@@ -37,8 +37,8 @@ class UserService {
     return await diagnosisRepository.getAllDiagnosisByUserID(userId);
   }
 
-  async getOneDiagnosisByUserId(id) {
-    // return await diagnosisRepository.getUserById(id);
+  async getOneDiagnosisByID(id) {
+    return await diagnosisRepository.getOneDiagnosisByID(id);
   }
 
   async deleteDiagnosis(userId) {
