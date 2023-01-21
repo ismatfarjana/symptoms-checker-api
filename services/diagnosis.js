@@ -10,10 +10,12 @@ class UserService {
     const diagnosisInsert = diagnosises.map((diagnosis) => {
       return {
         _id: id,
+        issueId: diagnosis.Issue.ID,
         name: diagnosis.Issue.Name,
         profname: diagnosis.Issue.ProfName,
         accuracy: diagnosis.Issue.Accuracy,
         ranking: diagnosis.Issue.Ranking,
+        cause: diagnosis.Issue.IcdName
       };
     });
 

@@ -9,10 +9,12 @@ const DiagnosisSchema = new Schema(
     diagnosis: [
       {
         _id: String,
+        issueId: Number,
         name: String,
         profname: String,
         accuracy: Number,
         ranking: Number,
+        cause: String,
       },
     ],
     selectedSymptoms: [
