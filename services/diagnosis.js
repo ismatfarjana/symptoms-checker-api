@@ -43,8 +43,8 @@ class UserService {
     return await diagnosisRepository.getIssuesListByDiagnosisID(id);
   }
 
-  async deleteDiagnosis(userId) {
-    // return await diagnosisRepository.deleteUserById(userId);
+  async deleteDiagnosisByDiagnosisID(id) {
+    // return await diagnosisRepository.deleteDiagnosisByDiagnosisID(id);
   }
 }
 

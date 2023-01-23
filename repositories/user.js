@@ -1,30 +1,11 @@
 // CRUD operations
-const crypto = require("crypto");
-const { connect } = require("../config/db.config");
 const { User } = require("../models/user.js");
 
 class UserRepository {
-  // constructor() {
-  //   connect();
-  // }
 
   async findUserByEmail(email) {
     try {
       const user = await User.find({ email: email });
-      return user[0];
-    } catch (err) {
-      return err;
-    }
-  }
-
-  async createUser(userId, email, hash) {
-    try {
-      const user = await User.create({
-        _id: userId,
-        email,
-        password: hash,
-        profile: {},
-      });
       return user[0];
     } catch (err) {
       return err;

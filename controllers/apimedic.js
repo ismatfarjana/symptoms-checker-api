@@ -56,7 +56,6 @@ const getDiagnosis = async (req, res) => {
     yearOfBirth: req.query.yearOfBirth,
   };
 
-  // console.log("params in func:", params)
   const diagnosis = await loadData(params, token);
 
   if (!diagnosis)
@@ -75,7 +74,6 @@ const getSpecialisations = async (req, res) => {
     yearOfBirth: req.query.yearOfBirth,
   };
 
-  // console.log("params in func:", params)
   const specialisations = await loadData(params, token);
 
   if (!specialisations)
@@ -97,7 +95,6 @@ const getProposedSymptoms = async (req, res) => {
     yearOfBirth: req.query.yearOfBirth,
   };
 
-  // console.log("params in func:", params)
   const proposedSymptoms = await loadData(params, token);
 
   if (!proposedSymptoms)
@@ -146,7 +143,6 @@ const getBodySymptoms = async (req, res) => {
     gender: req.query.gender,
   };
 
-  console.log("params.gender in func:", params.gender);
   const bodySymptoms = await loadData(params, token);
 
   if (!bodySymptoms)
