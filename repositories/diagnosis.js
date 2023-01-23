@@ -38,13 +38,13 @@ class DiagnosisRepository {
         {
           $project: {
             _id: 1,
-            diagnosis: 1,
+            issues: 1,
           },
         },
       ];
       const diagnosis = await Diagnosis.aggregate(aggregateArray);
 
-      return diagnosis;
+      return diagnosis[0];
     } catch (err) {
       return err;
     }

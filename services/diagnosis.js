@@ -29,7 +29,7 @@ class UserService {
     const diagnosisObject = {
       _id: id,
       userId: userId,
-      diagnosis: diagnosisInsert,
+      issues: diagnosisInsert,
       selectedSymptoms: symptomsInsert,
     };
     return await diagnosisRepository.addDiagnosis(diagnosisObject);

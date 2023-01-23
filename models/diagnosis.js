@@ -6,7 +6,7 @@ const DiagnosisSchema = new Schema(
   {
     _id: { type: String, required: true },
     userId: { type: String },
-    diagnosis: [
+    issues: [
       {
         _id: String,
         issueId: Number,
