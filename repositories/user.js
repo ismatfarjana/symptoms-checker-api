@@ -4,9 +4,9 @@ const { connect } = require("../config/db.config");
 const { User } = require("../models/user.js");
 
 class UserRepository {
-  constructor() {
-    connect();
-  }
+  // constructor() {
+  //   connect();
+  // }
 
   async findUserByEmail(email) {
     try {
