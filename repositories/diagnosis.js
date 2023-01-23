@@ -36,7 +36,7 @@ class DiagnosisRepository {
     }
   }
 
-  async getOneDiagnosisByID(id) {
+  async getIssuesListByDiagnosisID(id) {
     try {
       const aggregateArray = [
         { $match: { _id: id } },

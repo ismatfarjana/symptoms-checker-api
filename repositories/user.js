@@ -41,7 +41,7 @@ class UserRepository {
     return users;
   }
 
-  async updateUser(id, user) {
+  async updateUserById(id, user) {
     try {
       await User.updateOne({ _id: id }, { $set: user });
     } catch {
@@ -50,7 +50,7 @@ class UserRepository {
     return user;
   }
 
-  async deleteUser(userId) {
+  async deleteUserById(userId) {
     let data = {};
     try {
       data = await User.deleteOne({ _id: userId });

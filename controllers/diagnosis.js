@@ -16,10 +16,10 @@ class DiagnosisController {
       .then((data) => res.json(data));
   }
 
-  async getOneDiagnosisByID(req, res) {
+  async getIssuesListByDiagnosisID(req, res) {
     const id = req.params.id;
     return await diagnosisService
-      .getOneDiagnosisByID(id)
+      .getIssuesListByDiagnosisID(id)
       .then((data) => res.json(data));
   }
 }

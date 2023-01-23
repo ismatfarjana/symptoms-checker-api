@@ -30,7 +30,6 @@ async function loadToken() {
       })
       .catch((err) => console.log("err in function:", err));
   } catch (err) {
-    console.log("Error:", err);
     const errorobject = {
       status: err.response.status,
       statusText: err.response.statusText,

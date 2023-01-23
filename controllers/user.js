@@ -10,7 +10,7 @@ class UserController {
     return await userService.getUserById(id).then((data) => res.json(data));
   }
 
-  async updateUser(req, res) {
+  async updateUserById(req, res) {
     const { name, gender, yearOfBirth } = req.body;
     const id = req.params.id;
 
@@ -28,13 +28,13 @@ class UserController {
     };
 
     return await userService
-      .updateUser(id, userUpdate)
+      .updateUserById(id, userUpdate)
       .then((data) => res.json(data));
   }
 
-  async deleteUser(req, res) {
+  async deleteUserById(req, res) {
     const id = req.params.id;
-    return await userService.deleteUser(id).then((data) => res.json(data));
+    return await userService.deleteUserById(id).then((data) => res.json(data));
   }
 }
 

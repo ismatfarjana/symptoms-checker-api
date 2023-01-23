@@ -15,7 +15,7 @@ class UserService {
         profname: diagnosis.Issue.ProfName,
         accuracy: diagnosis.Issue.Accuracy,
         ranking: diagnosis.Issue.Ranking,
-        cause: diagnosis.Issue.IcdName
+        cause: diagnosis.Issue.IcdName,
       };
     });
 
@@ -39,12 +39,12 @@ class UserService {
     return await diagnosisRepository.getAllDiagnosisByUserID(userId);
   }
 
-  async getOneDiagnosisByID(id) {
-    return await diagnosisRepository.getOneDiagnosisByID(id);
+  async getIssuesListByDiagnosisID(id) {
+    return await diagnosisRepository.getIssuesListByDiagnosisID(id);
   }
 
   async deleteDiagnosis(userId) {
-    // return await diagnosisRepository.deleteUser(userId);
+    // return await diagnosisRepository.deleteUserById(userId);
   }
 }
 

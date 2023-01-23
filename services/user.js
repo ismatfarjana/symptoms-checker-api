@@ -12,11 +12,11 @@ class UserService {
     return await userRepository.getUserById(id);
   }
 
-  async updateUser(id, user) {
-    return await userRepository.updateUser(id, user);
+  async updateUserById(id, user) {
+    return await userRepository.updateUserById(id, user);
   }
-  async deleteUser(userId) {
-    return await userRepository.deleteUser(userId);
+  async deleteUserById(userId) {
+    return await userRepository.deleteUserById(userId);
   }
 }
 
